@@ -11,10 +11,12 @@ This project requires python 3.12.7+ and pip installed.
 
 ## Installation
 Clone this repository:
+
 `git clone https://github.com/CosmicWhiskers/habit-tracker.git`
 
 If you choose to install this in a virtual environment: 
 `python -m venv venv`
+
 To activate the enviornment:
 `.\venv\Scripts\activate`
 
