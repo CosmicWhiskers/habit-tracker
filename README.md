@@ -1,7 +1,7 @@
 # TrackMyHabits by CosmicWhiskers, 2024
  The Habit Tracker offers a straightforward, user-friendly tool compatible with any platform that supports Python 3. To keep the application lightweight and widely accessible, it’s designed to run within a command-line interface, making it usable even on systems without a graphical user interface.
 
-Users can track their habits effortlessly by creating or logging into a personalized profile. From there, they can easily create, manage, and view habits in an organized layout, helping them monitor their progress. Analytics features provide insights, such as habit streaks, top-performing and least-performing habits, and more.
+Users can track their habits effortlessly by creating, managing and viewing habits in an organized layout. Doing so, helps them monitor their progress. Analytics features provide insights, such as number of habits, habit streaks, top-performing and more.
 
 Habit Tracker for Object-Oriented and Functional Programming with Python (DLBDSOOFPP01)
 
@@ -28,7 +28,7 @@ To start the application:
 `python main.py`
 
 ## Testing
-run pytest
+run `pytest`
 
 # Diagrams/Concept
 
@@ -39,5 +39,16 @@ run pytest
 ![Alt text](diagrams/userflow.png?raw=true "Userflow Diagram")
 
 ## User interface
+Welcome Screen
 
+Main Menu
+
+Habits
+Check Active Habits 
+Statistics
+End Program
+New Habit
+Edit Habit
+Delete Habit
+Back to Main Menu
 # License
