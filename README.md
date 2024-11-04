@@ -32,6 +32,8 @@ run pytest
 
 ## UML/class Diagram
 ![Alt text](diagrams/classes.png?raw=true "Class Diagram")
+
+
 ![Alt text](diagrams/userflow.png?raw=true "Userflow Diagram")
 
 ## User interface
