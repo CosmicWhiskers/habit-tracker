@@ -1,11 +1,9 @@
 from classes.menu import menu
-import classes.mainmenu 
-from classes.newhabitmenu import newhabitmenu
+import classes.mainmenu
 
-class habitsmenu(menu):
-    headline = "Manage your habits"
+class statisticsmenu(menu):
+    headline = "Your statistics"
     choices = [
-        "New habit",
         "Back to main menu"
     ]            
 
@@ -15,7 +13,3 @@ class habitsmenu(menu):
                 mymenu=classes.mainmenu.mainmenu()
                 answer=mymenu.show()
                 mymenu.execute(answer)
-            case "New habit":
-                mymenu=newhabitmenu()
-                answer=mymenu.show()
-                mymenu.execute(answer)    
