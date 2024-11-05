@@ -1,5 +1,6 @@
 from classes.menu import menu
 import classes.habitsmenu
+import questionary 
 
 class newhabitmenu(menu):
     headline = "Add a new habit"
@@ -21,5 +22,13 @@ class newhabitmenu(menu):
 
 
     def createHabit(self):
-        print ("Simone ist")
-        exit
+        name = questionary.text("Please enter habit name").ask()
+        description = questionary.text("Please enter short habit description").ask()
+        type = questionary.select("Please select a type", choices = ["daily", "weekly"]).ask()
+        print(name)
+        print(description)
+        print(type)
+        print("Habit successfully created")
+        questionary.confirm("Press any key to continue").ask()
+        answer=self.show()
+        self.execute(answer)
