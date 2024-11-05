@@ -33,10 +33,16 @@ run `pytest`
 # Diagrams/Concept
 
 ## UML/class Diagram
+
+### Database
 ![Alt text](diagrams/classes.png?raw=true "Class Diagram")
 
+### Class Diagram
 
+### Userflow 
 ![Alt text](diagrams/userflow.png?raw=true "Userflow Diagram")
+
+
 
 ## User interface
 ### Welcome Screen
@@ -63,5 +69,8 @@ The Statistics screen shows information about
 + habits with the same periodicity
 ### End Program
 Terminates and exits program.
+
+## Test/Sample data
+
 
 # License
