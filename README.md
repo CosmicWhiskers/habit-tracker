@@ -39,16 +39,17 @@ run `pytest`
 ![Alt text](diagrams/userflow.png?raw=true "Userflow Diagram")
 
 ## User interface
-Welcome Screen
+### Welcome Screen
+Short notice indicating a successful program start
+### Main Menu
+The Main Menu works as a hub for users to manage their habits. Here users can choose between managing their habits, checking off Active Habits, see statistics or, 
+just end the program altogether
+### Habits
+#### New Habit
+#### Edit Habit
+#### Delete Habit
+### Check Active Habits 
+### Statistics
+### End Program
 
-Main Menu
-
-Habits
-Check Active Habits 
-Statistics
-End Program
-New Habit
-Edit Habit
-Delete Habit
-Back to Main Menu
 # License
