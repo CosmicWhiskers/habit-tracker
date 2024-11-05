@@ -1,17 +1,17 @@
 import sqlite3
 
-con = sqlite3.connect("habbit-tracker.db")
+con = sqlite3.connect("habit-tracker.db")
 
 cur = con.cursor()
 
 # Create
-cur.execute("CREATE TABLE IF NOT EXISTS habbit(habbit_id, name, description)")
+cur.execute("CREATE TABLE IF NOT EXISTS habit(habit_id, name, description)")
 
 # Insert
-cur.execute("INSERT INTO habbit (habbit_id, name, description) VALUES (1, 'Test', 'Test description')")
+cur.execute("INSERT INTO habit (habit_id, name, description) VALUES (1, 'Test', 'Test description')")
 # Select
 
-result = cur.execute("SELECT * FROM habbit")
+result = cur.execute("SELECT * FROM habit")
 
 # Delete
-result = cur.execute("DELETE FROM habbit where habbit_id = 1")
+result = cur.execute("DELETE FROM habit where habit_id = 1")
