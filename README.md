@@ -45,11 +45,23 @@ Short notice indicating a successful program start
 The Main Menu works as a hub for users to manage their habits. Here users can choose between managing their habits, checking off Active Habits, see statistics or, 
 just end the program altogether
 ### Habits
+In the Habit screen users can choose to create a new habit, edit an existing habit, or delete them
 #### New Habit
+The New Habit screen enables the user to create a new habit. The user can either choose from 5 pre-existing habits, or create a completely new one. 
+In addition, users can set the type (daily, weekly) and duedate of the habit.
 #### Edit Habit
+In the Edit Habit screen users can change certain attributes of an active habit to adjust them to the personal needs of the user.
+Those attributes can be name, type (daily weekly), or duedate.
 #### Delete Habit
+The Delete Habit Screen shows all habits currently existing. By selecting a habit the habit will be removed and permanently deleted. 
 ### Check Active Habits 
+In the Check Active Habits screen users can check off the habit(s) they completed
 ### Statistics
+The Statistics screen shows information about 
++ the number of active habits, 
++ the longest run streak of all active habits, or for a specific one 
++ habits with the same periodicity
 ### End Program
+Terminates and exits program.
 
 # License
