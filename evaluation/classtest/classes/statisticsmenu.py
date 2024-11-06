@@ -10,6 +10,6 @@ class statisticsmenu(menu):
     def execute(self, answer):
         match answer:
             case "Back to main menu":
-                mymenu=classes.mainmenu.mainmenu()
+                mymenu=classes.mainmenu.mainmenu(self.con)
                 answer=mymenu.show()
                 mymenu.execute(answer)

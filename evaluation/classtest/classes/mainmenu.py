@@ -14,17 +14,17 @@ class mainmenu(menu):
 
     def execute(self, answer):
         match answer:
-            case "Quit":
-                self.quitProgram()
             case "Edit habits":
-                mymenu=habitsmenu()
+                mymenu=habitsmenu(self.con)
                 answer=mymenu.show()
                 mymenu.execute(answer)
             case "Check off habits":
-                mymenu=checkhabitsmenu()
+                mymenu=checkhabitsmenu(self.con)
                 answer=mymenu.show()
                 mymenu.execute(answer)
             case "Statistics":
-                mymenu=statisticsmenu()
+                mymenu=statisticsmenu(self.con)
                 answer=mymenu.show()
                 mymenu.execute(answer)
+            case "Quit":
+                self.quitProgram()

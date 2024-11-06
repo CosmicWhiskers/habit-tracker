@@ -4,8 +4,9 @@ import questionary
 class menu: 
     headline = ""
     choices = []
-
-    def __init__(self):
+    con=""
+    def __init__(self,con):
+        self.con=con
         return
     
     def clearScreen(self):

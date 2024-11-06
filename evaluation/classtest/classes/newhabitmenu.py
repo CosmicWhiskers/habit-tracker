@@ -14,7 +14,7 @@ class newhabitmenu(menu):
             case "Create habit":
                 self.createHabit()
             case "Back to habit menu":
-                mymenu=classes.habitsmenu.habitsmenu()
+                mymenu=classes.habitsmenu.habitsmenu(self.con)
                 answer=mymenu.show()
                 mymenu.execute(answer)
 
