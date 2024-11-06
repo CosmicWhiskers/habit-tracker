@@ -20,8 +20,6 @@ class newhabitmenu(menu):
                 mymenu.execute(answer)
 
 
-
-
     def createHabit(self):
         name = questionary.text("Please enter habit name").ask()
         description = questionary.text("Please enter short habit description").ask()

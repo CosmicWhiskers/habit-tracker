@@ -11,11 +11,11 @@ class deletehabitmenu(menu):
 
         choices = []
         for x in result:
-            print(x)
+            #print(x)
             choices.append(questionary.Choice(x[1],x[0]))
 
         choices.append(questionary.Choice("Back to habit menu", -1))
-        #self.clearScreen()
+        self.clearScreen()
         answer = questionary.select(self.headline, choices).ask()
    
         if(answer == -1):

@@ -11,7 +11,7 @@ class mainmenu(menu):
         "Statistics",
         "Quit"
     ]            
-
+  
     def execute(self, answer):
         match answer:
             case "Edit habits":
@@ -28,3 +28,4 @@ class mainmenu(menu):
                 mymenu.execute(answer)
             case "Quit":
                 self.quitProgram()
+
