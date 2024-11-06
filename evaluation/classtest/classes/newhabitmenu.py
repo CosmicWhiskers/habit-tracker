@@ -32,6 +32,5 @@ class newhabitmenu(menu):
         questionary.confirm("Press any key to continue").ask()
         answer=self.show()
         self.execute(answer)
-    # TODO: remove following code, this is for reference
-    #def editHabit(self):
-     #   return    
+
+    
