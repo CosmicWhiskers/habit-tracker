@@ -35,10 +35,10 @@ run `pytest`
 ## UML/class Diagram
 
 ### Database
-![Alt text](diagrams/classes.png?raw=true "Class Diagram")
+![Alt text](diagrams/classes.png?raw=true "Database")
 
 ### Class Diagram
-
+![Alt text](diagrams/classes.png?raw=true "Class Diagram")
 ### Userflow 
 ![Alt text](diagrams/userflow.png?raw=true "Userflow Diagram")
 
