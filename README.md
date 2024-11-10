@@ -3,8 +3,7 @@
 
 Users can track their habits effortlessly by creating, managing and viewing habits in an organized layout. Doing so, helps them monitor their progress. Analytics features provide insights, such as number of habits, habit streaks, top-performing and more.
 
-Habit Tracker for Object-Oriented and Functional Programming with Python (DLBDSOOFPP01)
-
+This habit-tracker is being created in the context of a continuing education course (Data Analyst - Python) for the module "Object-Oriented and Functional Programming with Python (DLBDSOOFPP01)".
 
 # Quick start
 This project requires python 3.12.7+ and pip installed.
