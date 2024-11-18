@@ -55,10 +55,10 @@ class habit:
         self.id = self.con.cursor().lastrowid
 
     def update(self):
-        sql = "UPDATE habit set name = ?, description = ?, type = ?, last_check = ?, total_checks = ?, current_streak = ?, longest_streak = ?, created_at = ?, lastchange_at = ?"
+        sql = "UPDATE habit set name = ?, description = ?, type = ?, last_check = ?, total_checks = ?, current_streak = ?, longest_streak = ?, created_at = ?, lastchange_at = ? where habit_id = ?"
 
         self.lastchange_at = datetime.now()
-        data_tuples = (self.name, self.description, self.htype, self.last_check, self.total_checks, self.current_streak, self.longest_streak, self.created_at, self.lastchange_at)
+        data_tuples = (self.name, self.description, self.htype, self.last_check, self.total_checks, self.current_streak, self.longest_streak, self.created_at, self.lastchange_at, self.id)
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()
 

@@ -7,6 +7,7 @@ class deletehabitmenu(menu):
     headline = "Delete a habit"
     def show(self):
         self.deleteHabit()
+        return
     def deleteHabit(self):
         choices = self.getAllHabitsAsChoices()
 
@@ -23,7 +24,8 @@ class deletehabitmenu(menu):
         result.getByHabitId(answer)
         result.delete()
 
-        self.show()
+        answer = self.show()
+        self.execute(anser)
 
     def execute(self, answer):
         return

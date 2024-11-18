@@ -22,8 +22,9 @@ class edithabitmenu(menu):
         editHabit=habit(self.con)
         editHabit.getByHabitId(answer)
 
-        editHabit.name = questionary.text(message = "Name:", default = editHabit.name).ask()
-        editHabit.description = questionary.text(message = "Description:", default = editHabit.description).ask()
+        editHabit.name = questionary.text(message = "Name: ", default = editHabit.name).ask()
+        editHabit.description = questionary.text(message = "Description: ", default = editHabit.description).ask()
+        editHabit.htype = questionary.select(message = "Type: ", choices = (questionary.Choice("Daily", 1), questionary.Choice("Weekly", 7)), default = int(editHabit.htype)).ask()
 
         editHabit.update()
         self.show()
