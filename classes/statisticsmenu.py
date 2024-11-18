@@ -45,7 +45,7 @@ class statisticsmenu(menu):
         questionary.print("Here are all " + state + " tasks:")
 
         for x in result:
-            questionary.print("ID: " + str(x[0]) + " " + x[1])
+            questionary.print("ID: " + str(x[0]) + " " + x[1] + " " + x[2])
 
         return
 
