@@ -1,5 +1,6 @@
 from classes.menu import menu
 from classes.mainmenu import mainmenu
+from classes.db.database import database
 import sqlite3
 import questionary
 
@@ -11,18 +12,9 @@ class welcomemenu(menu):
         return
     def execute(self, answer):
         questionary.print("Creating new database if not already existing!")
-        self.con.cursor().execute("""CREATE TABLE IF NOT EXISTS 
-                                        habit(habit_id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                              name TEXT,
-                                              description TEXT,
-                                              type TEXT,
-                                              last_check DATETIME,
-                                              total_checks INT,
-                                              current_streak INT,
-                                              longest_streak INT,
-                                              created_at DATETIME,
-                                              lastchange_at DATETIME
-                                             )""")
+        mydb = database(self.con)
+
+        mydb.create()
         questionary.press_any_key_to_continue().ask()
         mymenu=mainmenu(self.con)
         answer=mymenu.show()
