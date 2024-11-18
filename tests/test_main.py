@@ -63,6 +63,8 @@ class TestMain:
         assert myhabit.htype == 1
         assert myhabit.hid == 7
 
+
+    def test_habit_update(self):
         myhabit2=habit(self.con)
         myhabit2.create("Test2", "TestDesc", 1)
         myhabit2.insert()
@@ -74,6 +76,8 @@ class TestMain:
 
         assert myhabit2.name == "Test3"
 
+
+    def test_habit_get_by_habit_id(self):
         myhabit3=habit(self.con)
         myhabit3.getByHabitId(8)
 
