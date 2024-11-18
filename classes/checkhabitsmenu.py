@@ -49,20 +49,33 @@ class checkhabitsmenu(menu):
         #   -> We check the period, but set current_streak back to 1, and also set the end
         #      of the next period
 
+        # Case 1:
         if(today <= last_check):
-            questionary.print("You already checked this habit today.")
-            questionary.press_any_key_to_continue().ask()
-            self.show()
-            return
+            questionary.print("You already checked this habit for this period.")
+        # Case 2:
+        elif (today > last_check and abs((today-last_check).days) <= int(result.htype)):
+            result.current_streak = result.current_streak + 1
+            result.total_checks = result.total_checks + 1
+            result.last_check = today
+            if(result.current_streak > result.longest_streak):
+                result.longest_streak = result.current_streak
+            result.update()
+            self.con.commit()
+            questionary.print("Successfully checked this habit for this period. Your streak increased")
+        # If the first two don't match, it is case 3 by default:
+        else:
+            result.current_streak = 1
+            result.total_checks = result.total_checks + 1
+            result.last_check = today
+            result.update()
+            self.con.commit()
+            questionary.print("You missed a time perion. Your streak reset!")
 
-        #Case 2
-        result.current_streak = result.current_streak + 1
-        result.total_checks = result.total_checks + 1
-        if(result.current_streak > result.longest_streak):
-            result.longest_streak = result.current_streak
-        result.update()
-        self.con.commit()
-        self.show()
+
+        questionary.press_any_key_to_continue().ask()
+        answer = self.show()
+        self.execute(answer)
+
 
     def execute(self, answer):
         return
