@@ -41,7 +41,7 @@ class statisticsmenu(menu):
         tuple = (htype,)
         result = self.con.cursor().execute("SELECT * FROM habit where type = ?", tuple).fetchall()
 
-        state = "daily" if htype == 1 else "weekly"
+        state = "daily" if int(htype) == 1 else "weekly"
         questionary.print("Here are all " + state + " tasks:")
 
         for x in result:
@@ -54,7 +54,7 @@ class statisticsmenu(menu):
 
         questionary.print("Displaying the longest streak, or longest streaks if there are multiple:")
         for x in result:
-            state = "daily" if x[3] == 1 else "weekly"
+            state = "daily" if int(x[3]) == 1 else "weekly"
             questionary.print("The longest streak is called " + x[1] + ": " + x[2] + ", a " + state + " task with " + str(x[7]) + " consequitve periods.")
 
         return
