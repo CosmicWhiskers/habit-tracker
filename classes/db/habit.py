@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 class habit:
     con = ""
-    id = 0
+    hid = 0
     name = ""
     description = ""
     htype = 0
@@ -23,7 +23,7 @@ class habit:
         self.fillFromQuery(result)
 
     def fillFromQuery(self, result):
-        self.id = result[0]
+        self.hid = result[0]
         self.name = result[1]
         self.description = result[2]
         self.htype = result[3]
@@ -52,20 +52,24 @@ class habit:
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()
 
-        self.id = self.con.cursor().lastrowid
+        self.hid = self.con.cursor().lastrowid
 
     def update(self):
         sql = "UPDATE habit set name = ?, description = ?, type = ?, last_check = ?, total_checks = ?, current_streak = ?, longest_streak = ?, created_at = ?, lastchange_at = ? where habit_id = ?"
 
         self.lastchange_at = datetime.now()
-        data_tuples = (self.name, self.description, self.htype, self.last_check, self.total_checks, self.current_streak, self.longest_streak, self.created_at, self.lastchange_at, self.id)
+        data_tuples = (self.name, self.description, self.htype, self.last_check, self.total_checks, self.current_streak, self.longest_streak, self.created_at, self.lastchange_at, self.hid)
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()
 
     def delete(self):
         sql = "DELETE from habit where habit_id = ?"
-        data_tuples = (self.id,)
+        data_tuples = (self.hid,)
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()
 
-
+    def addHistory(self):
+        sql = "INSERT INTO habit_history (habit_id, check_date, created_at, lastchange_at) values (?,?,?,?)"
+        data_tuples = (self.hid, self.last_check, datetime.now(), datetime.now())
+        self.con.cursor().execute(sql, data_tuples)
+        self.con.commit()
