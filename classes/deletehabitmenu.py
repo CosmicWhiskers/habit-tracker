@@ -25,7 +25,7 @@ class deletehabitmenu(menu):
         result.delete()
 
         answer = self.show()
-        self.execute(anser)
+        self.execute(answer)
 
     def execute(self, answer):
         return

@@ -49,6 +49,7 @@ class TestMain:
         return
 
     def teardown_class(self):
+        self.con.close()
         os.remove("testdata.db")
         return
 
