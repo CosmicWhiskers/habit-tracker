@@ -1,4 +1,5 @@
 from classes.menu import menu
+from classes.db.habit import habit
 import questionary
 import classes.habitsmenu
 
@@ -7,14 +8,8 @@ class deletehabitmenu(menu):
     def show(self):
         self.deleteHabit()
     def deleteHabit(self):
-        result = self.con.cursor().execute("SELECT * FROM habit")
+        choices = self.getAllHabitsAsChoices()
 
-        choices = []
-        for x in result:
-            #print(x)
-            choices.append(questionary.Choice(x[1],x[0]))
-
-        choices.append(questionary.Choice("Back to habit menu", -1))
         self.clearScreen()
         answer = questionary.select(self.headline, choices).ask()
    
@@ -23,8 +18,10 @@ class deletehabitmenu(menu):
             answer=mymenu.show()
             mymenu.execute(answer)
             return
-        self.con.cursor().execute("DELETE FROM habit where habit_id = " + str(answer))
-        self.con.commit()
+
+        result = habit(self.con)
+        result.getByHabitId(answer)
+        result.delete()
 
         self.show()
 

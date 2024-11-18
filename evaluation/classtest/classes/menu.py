@@ -22,5 +22,17 @@ class menu:
         answer = questionary.select(self.headline, self.choices).ask()
         return answer
 
+    def getAllHabitsAsChoices(self): 
+        result = self.con.cursor().execute("SELECT * FROM habit")   
+
+        choices = []
+        for x in result:
+            #print(x)
+            choices.append(questionary.Choice(x[1],x[0]))
+
+        choices.append(questionary.Choice("Back to previous menu", -1))
+        
+        return choices
+
     def quitProgram(self):
         exit
