@@ -163,3 +163,4 @@ cython_debug/
 
 # Custom Evaluation
 habit-tracker.db
+testdata.db
