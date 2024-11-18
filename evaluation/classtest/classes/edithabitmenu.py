@@ -1,4 +1,5 @@
 from classes.menu import menu
+from classes.db.habit import habit
 import questionary
 import classes.habitsmenu
 
@@ -18,13 +19,13 @@ class edithabitmenu(menu):
             mymenu.execute(answer)
             return
         
-        editHabit=habit()
+        editHabit=habit(self.con)
+        editHabit.getByHabitId(answer)
 
+        editHabit.name = questionary.text(message = "Name:", default = editHabit.name).ask()
+        editHabit.description = questionary.text(message = "Description:", default = editHabit.description).ask()
 
-
-        #self.con.cursor().execute("DELETE FROM habit where habit_id = " + str(answer))
-        self.con.commit()
-
+        editHabit.update()
         self.show()
 
     def execute(self, answer):

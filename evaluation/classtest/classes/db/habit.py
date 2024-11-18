@@ -18,9 +18,11 @@ class habit:
     def __init__(self, con):
         self.con = con
 
-
     def getByHabitId(self, habbit_id):
         result = self.con.cursor().execute("SELECT * FROM habit where habit_id = " + str(habbit_id)).fetchone()
+        self.fillFromQuery(result)
+
+    def fillFromQuery(self, result):
         print(result)
         self.id = result[0]
         self.name = result[1]
@@ -32,6 +34,13 @@ class habit:
         self.longest_streak = result[7]
         self.created_at = result[8]
         self.lastchange_at = result[9]
+
+    def getByType(self, htype):
+        tuple = (htpye,)
+        result = self.con.cursor().execute("SELECT * FROM habit where type = ?", tuple).fetchall()
+
+    def getHabitWithLongestStreak(self):
+        result = self.con.cursor().execute("SELECT * FROM habit where longest_streak = (select max(longest_streak) from habit)").fetchall()
 
     def create(self, name, description, type):
         self.name = name
@@ -66,4 +75,5 @@ class habit:
         data_tuples = (self.id,)
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()
+
 

@@ -5,7 +5,7 @@ import classes.habitsmenu
 from datetime import date, timedelta, datetime
 
 class checkhabitsmenu(menu):
-    """ This menu allows you to select and check off a habit
+    """ This menu allows you to select and check off a habit.
         
         On success it returns to itself to check off habits in rapid succession.
     """
