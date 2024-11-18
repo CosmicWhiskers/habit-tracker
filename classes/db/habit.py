@@ -1,5 +1,6 @@
 import sqlite3
 import datetime
+import time
 from datetime import date, datetime
 
 class habit:
@@ -42,8 +43,8 @@ class habit:
         self.total_checks = 1
         self.current_streak = 1
         self.longest_streak = 1
-        created_at = datetime.now()
-        lastchange_at = datetime.now()
+        self.created_at = int(time.time())
+        self.lastchange_at = int(time.time())
 
     def insert(self):
         sql = "INSERT INTO habit (name, description, type, last_check, total_checks, current_streak, longest_streak, created_at, lastchange_at) VALUES (?,?,?,?,?,?,?,?,?)"
@@ -57,7 +58,7 @@ class habit:
     def update(self):
         sql = "UPDATE habit set name = ?, description = ?, type = ?, last_check = ?, total_checks = ?, current_streak = ?, longest_streak = ?, created_at = ?, lastchange_at = ? where habit_id = ?"
 
-        self.lastchange_at = datetime.now()
+        self.lastchange_at = int(time.time())
         data_tuples = (self.name, self.description, self.htype, self.last_check, self.total_checks, self.current_streak, self.longest_streak, self.created_at, self.lastchange_at, self.hid)
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()
@@ -70,6 +71,6 @@ class habit:
 
     def addHistory(self):
         sql = "INSERT INTO habit_history (habit_id, check_date, created_at, lastchange_at) values (?,?,?,?)"
-        data_tuples = (self.hid, self.last_check, datetime.now(), datetime.now())
+        data_tuples = (self.hid, self.last_check, int(time.time()), int(time.time()))
         self.con.cursor().execute(sql, data_tuples)
         self.con.commit()

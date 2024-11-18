@@ -19,16 +19,16 @@ class database:
                                            total_checks INT,
                                            current_streak INT,
                                            longest_streak INT,
-                                           created_at DATETIME,
-                                           lastchange_at DATETIME
+                                           created_at TIMESTAMP,
+                                           lastchange_at TIMESTAMP
                                        )""")
 
         self.con.cursor().execute("""CREATE TABLE IF NOT EXISTS
                                      habit_history(habit_history_id INTEGER PRIMARY KEY AUTOINCREMENT,
                                      habit_id INTEGER,
                                      check_date DATETIME,
-                                     created_at DATETIME,
-                                     lastchange_at DATETIME)""")
+                                     created_at TIMESTAMP,
+                                     lastchange_at TIMESTAMP)""")
 
     
         return
