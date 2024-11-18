@@ -54,15 +54,31 @@ class TestMain:
 
     def test_habit_create(self):
         myhabit=habit(self.con)
-
         myhabit.create("Test1", "TestDesc", 1)
+        myhabit.insert()        
 
         assert myhabit.name == "Test1"
         assert myhabit.description == "TestDesc"
         assert myhabit.htype == 1
+        assert myhabit.hid == 7
 
-        myhabit.insert()
-        assert myhabit.hid != 1
+        myhabit2=habit(self.con)
+        myhabit2.create("Test2", "TestDesc", 1)
+        myhabit2.insert()
+
+        assert myhabit2.hid == 8
+
+        myhabit2.name = "Test3"
+        myhabit2.update()
+
+        assert myhabit2.name == "Test3"
+
+        myhabit3=habit(self.con)
+        myhabit3.getByHabitId(8)
+
+        assert myhabit3.name == "Test3"
+        assert myhabit3.description == "TestDesc"
+        assert myhabit3.hid == 8
 
         return
 

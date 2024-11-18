@@ -51,9 +51,9 @@ class habit:
 
         data_tuples = (self.name, self.description, self.htype, self.last_check, self.total_checks, self.current_streak, self.longest_streak, self.created_at, self.lastchange_at)
         self.con.cursor().execute(sql, data_tuples)
-        self.con.commit()
+        self.hid = self.con.cursor().execute("SELECT last_insert_rowid()").fetchone()[0]
 
-        self.hid = self.con.cursor().lastrowid
+        self.con.commit()
 
     def update(self):
         sql = "UPDATE habit set name = ?, description = ?, type = ?, last_check = ?, total_checks = ?, current_streak = ?, longest_streak = ?, created_at = ?, lastchange_at = ? where habit_id = ?"
