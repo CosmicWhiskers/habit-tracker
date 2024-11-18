@@ -10,7 +10,6 @@ class menu:
         return
     
     def clearScreen(self):
-        return
         # Clear screen, put this in method somewhere
         if name == 'nt':
             _ = system('cls')

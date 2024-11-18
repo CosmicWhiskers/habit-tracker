@@ -7,7 +7,7 @@ from datetime import date, timedelta, datetime
 class checkhabitsmenu(menu):
     """ This menu allows you to select and check off a habit.
         
-        On success it returns to itself to check off habits in rapid succession.
+        On success it returns to itself to enable checking off habits in rapid succession.
     """
     
     headline = "Check a habit"
@@ -15,9 +15,11 @@ class checkhabitsmenu(menu):
         self.showHabits()
 
     def showHabits(self):
+        """ This method checks off a habit. 
+        """
         choices = self.getAllHabitsAsChoices()
 
-#        self.clearScreen()
+        self.clearScreen()
         answer = questionary.select(self.headline, choices).ask()
    
         if(answer == -1):
@@ -27,15 +29,11 @@ class checkhabitsmenu(menu):
             return
 
 
-        periodicity = timedelta(days=1)
         result = habit(self.con) 
         result.getByHabitId(answer)
-        print(result)
 
         today = date.today()
         last_check = datetime.strptime(result.last_check, '%Y-%m-%d').date()
-        print(today)
-        print(last_check)
 
         # In result, we have last_check, which is the END of the current habit period.
         # Three possibilities:
@@ -62,7 +60,7 @@ class checkhabitsmenu(menu):
             result.update()
             result.addHistory()
             self.con.commit()
-            questionary.print("Successfully checked this habit for this period. Your streak increased")
+            questionary.print("Successfully checked the habit for this period. Your current streak is now: " + str(result.current_streak) + ", your longest streak for this habit is " + str(result.longest_streak) + "." )
         # If the first two don't match, it is case 3 by default:
         else:
             result.current_streak = 1
@@ -74,11 +72,14 @@ class checkhabitsmenu(menu):
             questionary.print("You missed a time perion. Your streak reset!")
 
 
+        # We already did a result output, so we wait for a key press and then return to the menu
         questionary.press_any_key_to_continue().ask()
         answer = self.show()
         self.execute(answer)
 
-
     def execute(self, answer):
+        """
+        We overwrite this to do nothing because we do all functionality above
+        """
         return
 
