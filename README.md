@@ -24,7 +24,7 @@ Install requirements and dependencies
 
 ## Running
 To start the application:
-`python main.py`
+`python trackmyhabits.py`
 
 ## Testing
 run `pytest`
