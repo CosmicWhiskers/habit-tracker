@@ -37,7 +37,6 @@ class checkhabitsmenu(menu):
         print(today)
         print(last_check)
 
-        # What do we need to do here?
         # In result, we have last_check, which is the END of the current habit period.
         # Three possibilities:
         # 1) We are earlier than that period, which means we already checked this habit
