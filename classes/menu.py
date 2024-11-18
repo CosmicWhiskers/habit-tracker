@@ -28,7 +28,6 @@ class menu:
 
         choices = []
         for x in result:
-            print(x)
             state = "Daily" if int(x[3]) == 1 else "Weekly"
             choices.append(questionary.Choice(x[1] + ": " + x[2] + " -> " + state, x[0]))
 

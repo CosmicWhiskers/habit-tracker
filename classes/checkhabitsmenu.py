@@ -60,6 +60,7 @@ class checkhabitsmenu(menu):
             if(result.current_streak > result.longest_streak):
                 result.longest_streak = result.current_streak
             result.update()
+            result.addHistory()
             self.con.commit()
             questionary.print("Successfully checked this habit for this period. Your streak increased")
         # If the first two don't match, it is case 3 by default:
@@ -68,6 +69,7 @@ class checkhabitsmenu(menu):
             result.total_checks = result.total_checks + 1
             result.last_check = today
             result.update()
+            result.addHistory()
             self.con.commit()
             questionary.print("You missed a time perion. Your streak reset!")
 
