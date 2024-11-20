@@ -27,6 +27,8 @@ To start the application:
 `python trackmyhabits.py`
 
 ## Testing
+Unittest are only done for the habit class. UI tests via selenium were out of scope of this project.
+
 run `pytest`
 
 # Diagrams/Concept
@@ -71,5 +73,9 @@ Terminates and exits program.
 
 ## Test/Sample data
 
+The unittest create their own sample data. Additionally, if no database exists a new will be created and test data added.
+Unittest data will be deleted after unittest is complete.
 
 # License
+
+none
