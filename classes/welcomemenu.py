@@ -6,6 +6,8 @@ import sqlite3
 import questionary
 
 class welcomemenu(menu):
+    """ Starter menu. Initializes application. 
+    """
     headline = "Welcome to Track My Habits"
     choices = [
     ]            
@@ -16,6 +18,8 @@ class welcomemenu(menu):
     def show(self):
         return
     def execute(self, answer):
+        # this method either connects to or creates a database. 
+        # If no database exists the new database, initial data will be added.
         if os.path.isfile("habit-tracker.db"):
             self.con = sqlite3.connect("habit-tracker.db")
         else:

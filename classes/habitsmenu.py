@@ -5,6 +5,9 @@ from classes.edithabitmenu import edithabitmenu
 from classes.deletehabitmenu import deletehabitmenu 
 
 class habitsmenu(menu):
+    """ This menu lists all possible actions users can choose to manage their habits.
+    """
+
     headline = "Manage your habits"
     choices = [
         "New habit",

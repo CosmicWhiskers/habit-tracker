@@ -3,6 +3,10 @@ from questionary import questionary
 import classes.mainmenu
 
 class statisticsmenu(menu):
+    """ This menu lists all possible statistic options a user can choose from.
+        
+        On selecting one of the options, users will be forwarded to chosen area
+    """ 
     headline = "Your statistics"
     choices = [
         "Show all daily habits",
@@ -38,6 +42,7 @@ class statisticsmenu(menu):
 
 
     def showByType(self, htype):
+        # This method displays all active habits grouped by periodicity.
         tuple = (htype,)
         result = self.con.cursor().execute("SELECT * FROM habit where type = ?", tuple).fetchall()
 
@@ -50,6 +55,8 @@ class statisticsmenu(menu):
         return
 
     def getLongestStreak(self):
+        # This method displays longest streak a habit has, resp. multiple habits if there are more then one eith same streak length
+
         result = self.con.cursor().execute("SELECT * FROM habit where longest_streak = (select max(longest_streak) from habit)").fetchall()
 
         questionary.print("Displaying the longest streak, or longest streaks if there are multiple:")

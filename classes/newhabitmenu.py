@@ -21,6 +21,10 @@ class newhabitmenu(menu):
 
 
     def createHabit(self):
+        """ This method creates a habit based on user input.
+        
+        During input users add name, description and periodicity. On success a message is displayed.
+    """
         name = questionary.text("Please enter habit name").ask()
         description = questionary.text("Please enter short habit description").ask()
         type = questionary.select("Please select a type", choices = [questionary.Choice("daily", 1), questionary.Choice("weekly", 7)]).ask()

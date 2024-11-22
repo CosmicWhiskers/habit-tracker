@@ -1,6 +1,7 @@
 from os import system, name
 import questionary 
 
+# parent class
 class menu: 
     headline = ""
     choices = []

@@ -4,11 +4,17 @@ import questionary
 import classes.habitsmenu
 
 class deletehabitmenu(menu):
+    """ This menu allows you to select and delete a habit.
+        
+        On success the selected habit will be removed from the habits list.
+    """
     headline = "Delete a habit"
     def show(self):
         self.deleteHabit()
         return
     def deleteHabit(self):
+        """ This method deletes a habit. 
+        """
         choices = self.getAllHabitsAsChoices()
 
         self.clearScreen()
@@ -29,4 +35,4 @@ class deletehabitmenu(menu):
 
     def execute(self, answer):
         return
-
+        

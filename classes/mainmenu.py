@@ -4,6 +4,10 @@ from classes.checkhabitsmenu import checkhabitsmenu
 from classes.statisticsmenu import statisticsmenu
 
 class mainmenu(menu):
+    """ This menu lists all possible options a user can choose from.
+        
+        On selecting one of the options, users will be forwarded to chosen area
+    """
     headline = "Welcome to the main menu."
     choices = [
         "Edit habits",

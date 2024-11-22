@@ -47,7 +47,7 @@ run `pytest`
 
 ## User interface
 ### Welcome Screen
-Short notice indicating a successful program start
+Indicates a successful program start. Connects to database
 ### Main Menu
 The Main Menu works as a hub for users to manage their habits. Here users can choose between managing their habits, checking off Active Habits, see statistics or, 
 just end the program altogether
